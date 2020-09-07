@@ -1,0 +1,4 @@
+mv_conffile /etc/default/freeipmi-bmc-watchdog /etc/default/bmc-watchdog 0.7.17~beta2-1
+mv_conffile /etc/init.d/freeipmi-bmc-watchdog /etc/init.d/bmc-watchdog 0.7.17~beta2-1
+mv_conffile /etc/logrotate.d/freeipmi-bmc-watchdog /etc/logrotate.d/bmc-watchdog 1.4.5-2~
+symlink_to_dir /usr/share/doc/freeipmi-bmc-watchdog freeipmi-common 1.6.4-3~

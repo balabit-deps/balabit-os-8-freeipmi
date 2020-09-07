@@ -1,0 +1,11 @@
+[Unit]
+Description=IPMI Node Detection Monitoring Daemon
+After=network.target
+
+[Service]
+Type=forking
+EnvironmentFile=-/etc/default/ipmidetectd
+ExecStart=/usr/sbin/ipmidetectd $OPTIONS
+
+[Install]
+WantedBy=multi-user.target

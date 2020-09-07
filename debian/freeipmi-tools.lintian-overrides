@@ -1,0 +1,4 @@
+# Quite a few lines in freeipmi pages might not be hypened easily, e.g. like
+# .B Chassis_Front_Panel_Buttons:Enable_Power_Off_Button_For_Power_Off_Only
+freeipmi-tools binary: manpage-has-errors-from-man usr/share/man/man8/ipmi-config.8.gz 460: warning [p 7, 6.8i]: cannot adjust line
+freeipmi-tools binary: manpage-has-errors-from-man usr/share/man/man8/ipmi-oem.8.gz 491: warning [p 8, 2.2i, div `an-div', 0.2i]: cannot adjust line

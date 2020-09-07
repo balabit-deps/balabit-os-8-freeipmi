@@ -1,0 +1,54 @@
+freeipmi (1.6.3-1.1ubuntu1) eoan; urgency=low
+
+  The use of RUN=yes|no in /etc/default configuration files is deprecated.
+  Speficically, this setting was removed from /etc/default/bmc-watchdog and,
+  since it was the only setting in /etc/default/ipmidetectd, that file was
+  removed entirely.
+  Please use systemctl enable|disable to control whether each service should
+  start or not.
+  .
+  Since 1.4.11-1.1ubuntu2 and 1.4.11-1.1ubuntu3, Ubuntu has been carrying two
+  patches to enable IPv6 in IPMI discovery and IPMI power. These patches were
+  eventually accepted upstream, and released in the 1.6.x series, but with two
+  symbols renamed to a singular form:
+  - ipmi_cmd_get_lan_configuration_parameters_ipv6_dynamic_addresses became
+    ipmi_cmd_get_lan_configuration_parameters_ipv6_dynamic_address
+  - tmpl_cmd_get_lan_configuration_parameters_ipv6_dynamic_addresses_rs became
+    tmpl_cmd_get_lan_configuration_parameters_ipv6_dynamic_address_rs
+  Ubuntu has now dropped the patches, which means the plural form of these
+  symbols are no longer available. We checked as best as we could and it looks
+  like nothing in the archive ever used them.
+  If, after this update, you get errors regarding these symbols, please open
+  a bug on the freeipmi package at the following address:
+  https://bugs.launchpad.net/ubuntu/+source/freeipmi/+filebug
+
+ -- Andreas Hasenack <andreas@canonical.com>  Thu, 04 Jun 2019 20:14:33 +0000
+
+freeipmi (1.1.5-1) unstable; urgency=low
+
+  * Config files were moved under /etc/freeipmi.  Legacy location (under
+    /etc) is supported only for backwards compatibility.  Please migrate
+    your changes and remove configuration files from legacy locations.
+  * ipmimonitoring tool was removed -- superseded by ipmi-sensors
+    and the new --output-sensor-state option (thin wrapper
+    /usr/sbin/ipmimonitoring is provided)
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Mon, 04 Jun 2012 15:46:08 -0400
+
+freeipmi (0.8.10-1) experimental; urgency=low
+
+  Upstream has switched from CVS to SVN.  Since target SVN seemed to lack any
+  history of merging, I had decided to revert to classical way to package for
+  Debian based on tarballs.  Thus do not expect complete development history
+  upon checkout.  As a consequence I  have abandoned any previous history of
+  Debian packaging, and recreated Debian packaging repository use
+  git-import-dscs --debsnap.  Please remove any previous debcheckout of
+  freeipmi you might have.
+
+  To stay consistent with upstream, following init.d/default/logrotate.d
+  files for freeipmi-bmc-watchdog were renamed accordingly (with handling
+  of renames done by dpkg-maintscript-helper mv_conffile in debhelper
+  scripts).
+  Please verify that your changes to corresponding files were preserved.
+
+ -- Yaroslav Halchenko <debian@onerussian.com>  Tue, 02 Nov 2010 00:42:46 -0400
