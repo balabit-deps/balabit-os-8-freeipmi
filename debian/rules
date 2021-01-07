@@ -20,14 +20,14 @@ override_dh_auto_install:
 	rm -f $(CURDIR)/debian/tmp/usr/share/doc/freeipmi/INSTALL
 	rm -f $(CURDIR)/debian/tmp/usr/share/doc/freeipmi/ChangeLog
 
-	: # We don't need the libtool metadata nor the init scripts
+	: # We don't need the libtool metadata nor the service files
 	rm $(CURDIR)/debian/tmp/usr/lib/libfreeipmi.la
 	rm $(CURDIR)/debian/tmp/usr/lib/libipmiconsole.la
 	rm $(CURDIR)/debian/tmp/usr/lib/libipmimonitoring.la
 	rm $(CURDIR)/debian/tmp/usr/lib/libipmidetect.la
-	rm $(CURDIR)/debian/tmp/etc/init.d/bmc-watchdog
-	rm $(CURDIR)/debian/tmp/etc/init.d/ipmidetectd
-	rm $(CURDIR)/debian/tmp/etc/init.d/ipmiseld
+	rm $(CURDIR)/debian/tmp/lib/systemd/system/ipmiseld.service
+	rm $(CURDIR)/debian/tmp/lib/systemd/system/ipmidetectd.service
+	rm $(CURDIR)/debian/tmp/lib/systemd/system/bmc-watchdog.service
 
 	: # chrpath -- operate only on files (not on still dangling symlinks)
 	/usr/bin/find  $(CURDIR)/debian/*/usr/sbin -type f \
